@@ -1,10 +1,11 @@
+import os
 import time
 import matplotlib.pyplot as plt
 from utils.lists import gerar_lista 
-from utils.sorts import bubble_sort, selection_sort, insertion_sort
+from utils.sorts import bubble_sort, selection_sort, insertion_sort, cocktail_sort, pent_sort
 
 # Tamanhos de listas para teste
-tamanhos = [10, 100, 500, 1000, 2000]
+tamanhos = [100, 1000, 5000, 10000, 20000]
 
 def medir_tempo(algoritmo, tipo_lista, nome_alg, nome_lista):
     """
@@ -37,7 +38,9 @@ def medir_tempo(algoritmo, tipo_lista, nome_alg, nome_lista):
 algoritmos = {
     "Bubble Sort (O(n²))": bubble_sort,
     "Selection Sort (O(n²))": selection_sort,
-    "Insertion Sort (O(n²))": insertion_sort,
+    "Insertion Sort (O(n²))": insertion_sort,    
+    "Cocktail Sort (O(n²))": cocktail_sort,
+    "Pent Sort (O(n log n))": pent_sort,
     "Python sorted() (O(n log n))": sorted
 }
 
@@ -48,7 +51,8 @@ geradores = {
 }
 
 # --- Loop principal ---
-for nome_gerador, tipo_lista in geradores.items():
+os.system('cls')
+for nome_gerador, tipo_lista in geradores.items():    
     print("-" * 50)
     print(f"Iniciando medições para listas do tipo: {nome_gerador}")
     print("-" * 50)
